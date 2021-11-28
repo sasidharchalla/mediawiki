@@ -104,7 +104,7 @@ module "jumpbox" {
   dns_zone_resource_group = module.aks.aks_node_resource_group
 }
 
-data "http" "myip" {
+/*data "http" "myip" {
   url = "http://ipv4.icanhazip.com"
 }
 module "akv" {
@@ -143,4 +143,4 @@ module "akv" {
   enable_private_endpoint = true
   existing_vnet_id        = module.spoke_vnet.vnet_id
   existing_subnet_id      = module.spoke_vnet.subnet_ids["AKS-Subnet1"]
-}
+}*/
