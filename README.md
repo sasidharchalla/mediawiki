@@ -1,0 +1,2 @@
+# mediawiki
+Automate mediawiki application
