@@ -1,0 +1,16 @@
+apiVersion: aadpodidentity.k8s.io/v1
+kind: AzureIdentity
+metadata:
+  name: {{ .Values.Sensitive.azureIdentity.name | quote }}
+spec:
+  type: 0
+  resourceID: {{ .Values.Sensitive.azureIdentity.resourceID | quote }}
+  clientID: {{ .Values.Sensitive.azureIdentity.clientID | quote }}
+---
+apiVersion: aadpodidentity.k8s.io/v1
+kind: AzureIdentityBinding
+metadata:
+  name: identity-aks-kv-binding
+spec:
+  azureIdentity: identity-aks-kv
+  selector: {{ .Values.Sensitive.azureIdentity.name | quote }}
