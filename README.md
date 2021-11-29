@@ -46,12 +46,12 @@ After logging into jumpbox,
 az login
 az aks get-credentials --resource-group mediawiki-kube-dev --name private-aks-dev
 git clone https://github.com/sasidharchalla/mediawiki.git
-helm install develop mediawiki
+helm install develop mediawiki -n dev --create-namespace
 ```
 ### Verfying
 Get public IP of mediawiki through kubectl command.
 ```
-kubectl get svc develop-mediawiki -o wide
+kubectl get svc -n dev develop-mediawiki -o wide
 ```
 Run it from the browser.
 
