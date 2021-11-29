@@ -12,7 +12,7 @@ This deployment has Horizontol Pod Autoscaling enabled which will automatically 
 ### Building the application image
 To create a docker image with mediawiki application and push to the docker hub, execute below commands:
 ```
-docker build -t <imag-name>-:<tag> Dockerfile
+docker build -t <image-name>-:<tag> Dockerfile
 docker tag <image-name>:<tag> <dockerhub-username>/<image-name>:<tag>
 docker login
 docker push <dockerhub-username>/<image-name>:<tag>
