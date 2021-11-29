@@ -20,11 +20,9 @@ docker push <dockerhub-username>/<image-name>:<tag>
 After pushing image to dockerhub, image can be used in helm-charts.
 
 ### Building infrastructure using terraform
-Before deploying the application you need to set the AWS credentials in terraform/vars/mediawiki.tfvars file.
-or you can export AWS credentials  using below command
+Before deploying the application you need to login by az client
 ```
-export AWS_ACCESS_KEY_ID="<your-access-key>"
-export AWS_SECRET_ACCESS_KEY="<your-secret-key"
+az login
 ```
 After placing/exporting the credentails, execute the below commands seqentially:
 (For Dev environment)
@@ -45,6 +43,8 @@ ssh -i "./modules/jumpbox/private_key.pem" adminuser@<jumpbox publicIP>
 
 After logging into jumpbox,
 ```
+az login
+az aks get-credentials --resource-group mediawiki-kube-dev --name private-aks-dev
 git clone https://github.com/sasidharchalla/mediawiki.git
 helm install develop mediawiki
 ```
